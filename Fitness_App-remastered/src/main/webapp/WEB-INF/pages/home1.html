@@ -52,6 +52,12 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="http://localhost:8080/logout">Выход</a>
                     </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-if="user.role=='ROLE_TRAINER'">
+                        <a class="dropdown-item" href="#">{{user.name}}:</a>
+                        <a class="dropdown-item" href="http://localhost:8080/trainer">Тренер</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://localhost:8080/logout">Выход</a>
+                    </div>
                 </li>
             </ul>
         </div>

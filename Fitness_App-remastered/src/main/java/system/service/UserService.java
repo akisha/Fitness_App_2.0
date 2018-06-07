@@ -101,6 +101,12 @@ public class UserService {
         return workouts;
     }
 
+    //public List<Workout> getTrainerWorkout() {  //check
+      //  User user = getCurrentUser();
+       // List<Workout> t_workouts = user.getT_workouts();
+        //return t_workouts;
+    //}
+
     public List<Pass> getUserPass() {  //check
         User user = getCurrentUser();
         List<Pass> passes = user.getPasses();

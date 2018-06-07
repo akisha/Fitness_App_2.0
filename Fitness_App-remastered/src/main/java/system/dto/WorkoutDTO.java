@@ -7,6 +7,15 @@ public class WorkoutDTO {
     private int price;
     private int type_id;
     private int trainer_id;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getPrice() {
         return price;
@@ -52,7 +61,7 @@ public class WorkoutDTO {
         return description;
     }
 
-    public void setDescriptipn(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

@@ -1,6 +1,7 @@
 package system.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import system.dto.PassDTO;
 import system.entities.Pass;
 import system.service.PassService;
 
@@ -16,8 +17,8 @@ public class PassRestController {
     }
 
     @RequestMapping(value = "/createPass", method = RequestMethod.POST)
-    public boolean createPass(@RequestBody String name, int price, String description, int remain, int type_id) {
-        return passService.createPass(name, price, description, remain, type_id);
+    public void createPass(@RequestBody PassDTO passDTO) {
+        passService.createPass(passDTO);
     }
 
     @RequestMapping(value = "/getAllPasses", method = RequestMethod.GET)

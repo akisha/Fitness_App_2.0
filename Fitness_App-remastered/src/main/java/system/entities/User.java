@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "user", schema = "sql7241038")
+@Table(name = "user", schema = "sql7241882")
 public class User {
 
     @Id
@@ -49,6 +49,10 @@ public class User {
     )
     @JsonIgnore
     private List<Pass> passes;
+
+    //public List<Workout> getT_workouts() {
+    //    return t_workouts;
+    //}
 
     public List<Workout> getWorkouts() {
         return workouts;

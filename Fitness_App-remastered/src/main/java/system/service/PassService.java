@@ -1,9 +1,11 @@
 package system.service;
 
 import org.springframework.security.access.annotation.Secured;
+import system.dto.PassDTO;
+import system.dto.WorkoutDTO;
 import system.entities.User;
-import system.entities.WorkoutType;
 import system.entities.Pass;
+import system.entities.WorkoutType;
 import system.repository.PassRepository;
 import system.repository.WorkoutTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +24,15 @@ public class PassService {
     private PassRepository passRepository;
 
     @Secured("ROLE_MANAGER")
-    public boolean createPass(String name, int price, String description, int remain, int type_id) {
-        WorkoutType type = workoutTypeRepository.findOne(type_id);
-        if (type!=null){
-            Pass newPass = new Pass();
-            newPass.setName(name);
-            newPass.setPrice(price);
-            newPass.setDescription(description);
-            newPass.setRemain(remain);
-            newPass.setType(type);
-            passRepository.save(newPass);
-            return true;
-        }
-        return false;
+    public void createPass(PassDTO passDTO){
+        WorkoutType passType = workoutTypeRepository.findOne(passDTO.getType_id());
+        Pass pass = new Pass();
+        pass.setName(passDTO.getName());
+        pass.setPrice(passDTO.getPrice());
+        pass.setDescription(passDTO.getDescription());
+        pass.setRemain(passDTO.getRemain());
+        pass.setType(passType);
+        passRepository.save(pass);
     }
 
     public List<Pass> getAllPasses(){  //check

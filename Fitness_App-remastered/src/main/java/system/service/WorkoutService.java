@@ -29,16 +29,15 @@ public class WorkoutService {
     public void createWorkout(WorkoutDTO workoutDTO){
         User trainer = userRepository.findOne(workoutDTO.getTrainer_id());
         WorkoutType workoutType = workoutTypeRepository.findOne(workoutDTO.getType_id());
-        if((trainer.getRole() == "ROLE_TRAINER") && (trainer != null) && (workoutType!=null)){
-            Workout workout = new Workout();
-            workout.setDescription(workoutDTO.getDescription());
-            workout.setRemain(workoutDTO.getRemain());
-            workout.setName(workoutDTO.getName());
-            workout.setTrainer(trainer);
-            workout.setType(workoutType);
-            workout.setPrice(workoutDTO.getPrice());
-            workoutRepository.save(workout);
-        }
+        Workout workout = new Workout();
+        workout.setName(workoutDTO.getName());
+        workout.setDescription(workoutDTO.getDescription());
+        workout.setRemain(workoutDTO.getRemain());
+        workout.setStatus(workoutDTO.getStatus());
+        workout.setTrainer(trainer);
+        workout.setType(workoutType);
+        workout.setPrice(workoutDTO.getPrice());
+        workoutRepository.save(workout);
     }
 
     public List<Workout> getAllWorkouts(){  //check

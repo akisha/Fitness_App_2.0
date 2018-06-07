@@ -17,6 +17,13 @@ app.controller('getController', function ($scope, $http, $location, $window) {
         });
     };
 
+    //$scope.getTrainerWorkout = function () {
+     //   var url = "getTrainerWorkout";
+       // $http.get(url, config).then(function (response) {
+         //   $scope.workouts = response.data;
+        //});
+    //};
+
     $scope.getCurrentUser = function () {
         var url = "getCurrentUser";
         $http.get(url, config).then(function (response) {
@@ -156,8 +163,23 @@ app.controller('postController', function ($scope, $http, $location, $window) {
             price: $scope.price,
             description: $scope.description,
             remain: $scope.remain,
+            status: $scope.status,
             type_id: $scope.type_id,
             trainer_id: $scope.trainer_id
+        };
+        $http.post(url, data, config).then(function (response) {
+            $window.location.href = '/manager1';
+        });
+    }
+
+    $scope.addPass = function () {
+        var url = "createPass";
+        var data = {
+            name: $scope.name,
+            price: $scope.price,
+            description: $scope.description,
+            remain: $scope.remain,
+            type_id: $scope.type_id,
         };
         $http.post(url, data, config).then(function (response) {
             $window.location.href = '/manager1';

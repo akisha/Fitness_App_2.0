@@ -208,6 +208,50 @@
         </form>
     </div>
 
+    <div ng-controller="postController">
+        <form ng-submit="addPass()">
+            <div class="form-group row h3">
+                <label class="col-sm-4 col-form-label">Добавление абонемента</label>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="name" placeholder="Название">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="price" placeholder="Цена">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="description" placeholder="Описание">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="remain" placeholder="Остаток">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="type_id" placeholder="ID типа">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-sm-4 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 </body>
 </html>

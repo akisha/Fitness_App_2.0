@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "pass", schema = "sql7241038")
+@Table(name = "pass", schema = "sql7241882")
 public class Pass
 {
     @Id
@@ -21,7 +21,7 @@ public class Pass
     @Column(name = "price", nullable = false)
     private int price;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "remain", nullable = false)

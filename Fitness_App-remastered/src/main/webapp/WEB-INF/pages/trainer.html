@@ -52,6 +52,12 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="http://localhost:8080/logout">Выход</a>
                     </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-if="user.role=='ROLE_TRAINER'">
+                        <a class="dropdown-item" href="#">{{user.name}}:</a>
+                        <a class="dropdown-item" href="http://localhost:8080/trainer">Тренер</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://localhost:8080/logout">Выход</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -63,52 +69,22 @@
 <div class="container">
 
     <header class="jumbotron my-4">
-        <h6 class="display-4">Менеджер</h6>
+        <h6 class="display-4">Тренер</h6>
     </header>
 
-    <table class="table borderless bg-color3" ng-init="getCartsForDelivery()">
+    <table class="table borderless bg-color3" ng-init="getTrainerWorkout()">
         <thead>
         <tr>
-            <th>Номер</th>
-            <th>Адрес доставки</th>
-            <th>Дата</th>
+            <th>Название занятия</th>
+            <th>Описание</th>
+            <th>Статус</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="cart in cartsForDelivery">
-            <td>{{cart.id}}</td>
-            <td>{{cart.user.address}}</td>
-            <td>{{getDate(cart.date)}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table borderless bg-color3" ng-init="getFreeDrivers()">
-        <thead>
-        <tr>
-            <th>Номер</th>
-            <th>Имя водителя</th>
-            <th>Телефон</th>
-            <th>Номера корзин</th>
-            <th>Начать доставку</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="driver in drivers" ng-controller="postController">
-            <td>{{driver.id}}</td>
-            <td>{{driver.name}}</td>
-            <td>{{driver.phone}}</td>
-            <td>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-model="ids">
-                </div>
-            </td>
-            <td>
-                <form name="post" ng-submit="addCartsToDriver()">
-                    <button type="submit" data-ng-click="setId(driver.id)" class="btn btn-success">Подтвердить
-                    </button>
-                </form>
-            </td>
+        <tr ng-repeat="workout in workouts" ng-controller="postController">
+            <td>{{workout.name}}</td>
+            <td>{{workout.description}}</td>
+            <td>{{workout.status}}</td>
         </tr>
         </tbody>
     </table>

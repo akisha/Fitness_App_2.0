@@ -3,13 +3,14 @@ package system.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import java.sql.Date;
 
 @Entity
-@Table(name = "workout", schema = "sql7241038")
+@Table(name = "workout", schema = "sql7241882")
 public class Workout {
 
     @Id
@@ -28,7 +29,7 @@ public class Workout {
     @Column(name = "remain", nullable = false)
     private int remain;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private String status;
 
     @ManyToOne
@@ -49,7 +50,7 @@ public class Workout {
         return status;
     }
 
-    public void setStatus(String name) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

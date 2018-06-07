@@ -93,6 +93,11 @@ public class UserRestController {
         return userService.getUserWorkout();
     }
 
+   // @RequestMapping(value = "/getTrainerWorkout", method = RequestMethod.GET)
+    //public List<Workout> getTrainerWorkout(){
+     //   return userService.getTrainerWorkout();
+    //}
+
     @RequestMapping(value = "/getUserPass", method = RequestMethod.GET)
     public List<Pass> getUserPass(){
         return userService.getUserPass();
