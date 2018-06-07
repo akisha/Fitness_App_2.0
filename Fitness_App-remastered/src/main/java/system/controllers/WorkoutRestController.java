@@ -1,6 +1,7 @@
 package system.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import system.dto.WorkoutDTO;
 import system.entities.Workout;
 import system.service.WorkoutService;
 
@@ -15,8 +16,8 @@ public class WorkoutRestController {
     }
 
     @RequestMapping(value = "/createWorkout", method = RequestMethod.POST)
-    public void createWorkout(@RequestBody Workout workout) {
-        workoutService.createWorkout(workout);
+    public void createWorkout(@RequestBody WorkoutDTO workoutDTO) {
+        workoutService.createWorkout(workoutDTO);
     }
 
     @RequestMapping(value = "/getAllWorkouts", method = RequestMethod.GET)

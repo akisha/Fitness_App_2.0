@@ -13,6 +13,7 @@ public class WorkoutType {
 
     @Column(name = "name", nullable = false)
     private String name;
+    @OneToMany(mappedBy = "type")
 
     public int getId() {
         return id;

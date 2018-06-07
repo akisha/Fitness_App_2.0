@@ -38,6 +38,9 @@ public class User {
     @JsonIgnore
     private List<Workout> workouts;
 
+    @OneToMany(mappedBy = "trainer")
+    private List<Workout> t_workouts;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_pass",
